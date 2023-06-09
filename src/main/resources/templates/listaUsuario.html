@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <title>Lista de Usuarios</title>   
+</head>
+    <body>
+      <div class>
+        <table class="table">
+          <thead>
+            <tr>
+              <p></p>
+              <th scope="col">#</th>
+              <p></p>
+              <th scope="col">Email</th>
+              <p></p>
+              <th scope="col">Senha</th>
+              <p></p>
+              <th scope="col">Excluir</th>
+              <p></p>
+              <th scope="col">Editar</th>
+              <p></p>
+            </tr>
+          </thead>  
+          <tbody>
+            <tr data-th-each="usuario: ${usuarios}">
+              <td data-th-text="${usuario.id}"></td>
+              <td data-th-text="${usuario.email}"></td>
+              <td data-th-text="${usuario.senha}"></td>
+              <td><a class="btn" th:href="@{'/excluir/'+${usuario.id}}">Excluir</a></td>
+              <td><a class="btn" th:href="@{'/editar/'+${usuario.id}}">Editar</a></td>
+              </tr>
+          </tbody>
+        </table> 
+      </div>
+        <a href="/cadastroUsuario">Cadastrar</a>   
+    </body>
+</html>

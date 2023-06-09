@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuario</title>
+</head>
+<body>
+            <form method="post" action="/cadastroUsuario">
+                <div th:if="${usuario}">
+                    <input type="hidden" name="id" th:value="${usuario?.id}">
+                </div>
+                <h1 style="font-weight: 800;">Cadastro de Usuário</h1>
+
+                <label for="nome">Nome:</label>
+                <input class="input-dados" type="text" placeholder="Digite Nome" name="nome"
+                    th:value="${usuario?.nome}"required>
+                <p></p>
+
+                <label for="email">Email:</label>
+                <input class="input-dados" type="email" placeholder="Digite e-mail" name="email"
+                    th:value="${usuario?.email}"required>
+                <p></p>
+
+                <label for="senha">Senha:</label>
+                <input class="input-dados" type="password" placeholder="Crie uma Senha" name="senha"
+                    th:value="${usuario?.senha}" required>
+                <p></p>
+                <div th:unless="${usuario}">
+                    <button><a href="/loginUsuario" type="submit" class="btn btn-primary"></a>Cadastrar</button> 
+                </div>
+
+                <div th:if="${usuario}">
+                    <button><a a herf="/loginUsuario" type="submit" class="btn btn-primary"></a>Alterar</button>
+                </div>
+                <p></p>
+
+                <span><a href="/loginUsuario">Já tenho uma conta</a></span>
+            </form>
+    </form>
+</body>
+
+
+</html>
